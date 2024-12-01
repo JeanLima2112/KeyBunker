@@ -3,7 +3,6 @@ import { Buffer } from "buffer";
 import { PasswordProps } from "../utils/types/passwordType";
 import { UpdateMasterKey } from "../utils/types/PasswordUpdate";
 
-
 async function initializeDatabase() {
   const db = SQLite.openDatabaseAsync("keybunker.db");
   return db;
@@ -11,9 +10,11 @@ async function initializeDatabase() {
 
 // DROP TABLE IF EXISTS passwords;
 // DROP TABLE IF EXISTS passwordmaster;
+
 export async function initializeTables() {
   const db = await initializeDatabase();
   await db.execAsync(`
+
     PRAGMA journal_mode = WAL;
     CREATE TABLE IF NOT EXISTS passwords (
       id INTEGER PRIMARY KEY NOT NULL,
@@ -30,6 +31,12 @@ export async function initializeTables() {
 
 export async function insertPasswords(data: PasswordProps) {
   const db = await initializeDatabase();
+  if (data.login) {
+    isSQLinjection(data.login);
+  }
+  isSQLinjection(data.label);
+  isSQLinjection(data.passkey);
+
   const passkeycripto = encryptPassword(data.passkey);
   await db.execAsync(`
     INSERT INTO passwords (label, passkey, login) VALUES
@@ -49,6 +56,11 @@ export async function updatePassword(data: PasswordProps) {
   const updates = [];
   const passkeycripto = encryptPassword(data.passkey);
 
+  if (data.login) {
+    isSQLinjection(data.login);
+  }
+  isSQLinjection(data.label);
+  isSQLinjection(data.passkey);
 
   updates.push(`label = '${data.label}'`);
   updates.push(`passkey = '${passkeycripto}'`);
@@ -73,6 +85,18 @@ export async function fetchAllPasswords(): Promise<PasswordProps[]> {
   return passwords;
 }
 
+function isSQLinjection(input: string): boolean {
+  const sqlInjectionRegex =
+    /(\b(SELECT|INSERT|UPDATE|DELETE|DROP|UNION|--|\*|;|OR|AND)\b|['"()])/i;
+  function testSqlInjection(input: string): boolean {
+    return sqlInjectionRegex.test(input);
+  }
+  if (testSqlInjection(input)) {
+    throw new Error('Entrada possivelmente contém comando malicioso');
+  }
+  return true;
+}
+
 function encryptPassword(password: string) {
   const buffer = Buffer.from(password, "utf-8");
   return buffer.toString("base64");
@@ -84,6 +108,7 @@ function decryptPassword(passkeycripto: string) {
 }
 
 export async function updatePasswordMaster(data: UpdateMasterKey) {
+  isSQLinjection(data.passkey);
   const db = await initializeDatabase();
   const result = await db.getAllAsync(
     `SELECT * FROM passwordmaster WHERE id = 1;`
@@ -117,11 +142,11 @@ export async function comparePasswordMaster(
   password: string
 ): Promise<boolean> {
   const db = await initializeDatabase();
+  isSQLinjection(password);
 
   const result = (await db.getAllAsync(
     "SELECT passkey FROM passwordmaster WHERE id = 1"
   )) as { passkey: string }[];
-
 
   if (result.length > 0 && result[0].passkey) {
     const storedHash = decryptPassword(result[0].passkey);

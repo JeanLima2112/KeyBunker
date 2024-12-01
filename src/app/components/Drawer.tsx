@@ -41,7 +41,7 @@ export default function Drawer({ isDrawerOpen, onClose }: DrawerProps) {
   }
 
   const openGithubRepo = () => {
-    Linking.openURL("https://github.com/kenzoliver/KeyBunker");
+    Linking.openURL("https://github.com/jeanlima2112/KeyBunker");
   };
 
   return (
