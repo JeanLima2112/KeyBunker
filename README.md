@@ -1,64 +1,55 @@
-# KeyBunker - Gerenciador de Senhas
+# KeyBunker - Password Manager
 
 <div style="display: flex; justify-content: center; align-items: center;">
-  <img src="assets/images/icon.png" alt="Ícone" style="width: 50%; height: 50%;">
+  <img src="assets/images/icon.png" alt="Icon" style="width: 50%; height: 50%;">
 </div>
 
+**KeyBunker** is a simple and efficient password management app, built with **React Native**, **Expo**, and **SQLite**. It allows users to securely and conveniently store, organize, and access their passwords with a user-friendly interface and easy-to-use features.
 
+## 🛠 Technologies Used
 
-O **KeyBunker** é um aplicativo simples e eficiente de gerenciamento de senhas, desenvolvido com **React Native**, **Expo**, e **SQLite**. Ele permite que os usuários armazenem, organizem e acessem suas senhas de forma segura e prática, com uma interface amigável e funcionalidade fácil de usar.
+- **React Native**: A powerful framework for building native mobile apps using JavaScript and React.
+- **Expo**: A toolset that simplifies the development process for React Native apps, offering ready-to-use features and a faster development experience.
+- **SQLite**: A lightweight and robust database for local data storage on the device.
+- **TypeScript**: A language that adds static typing to JavaScript, making the code more secure and easier to maintain.
 
-## 🛠 Tecnologias Utilizadas
+## 🚀 Features
 
-- **React Native**: Framework poderoso para o desenvolvimento de aplicativos móveis nativos usando JavaScript e React.
-- **Expo**: Conjunto de ferramentas que simplifica o processo de desenvolvimento de apps React Native, oferecendo recursos prontos para uso e uma experiência de desenvolvimento mais rápida.
-- **SQLite**: Banco de dados leve e robusto para armazenar dados localmente no dispositivo.
-- **TypeScript**: Linguagem que adiciona tipagem estática ao JavaScript/Typescript, tornando o código mais seguro e fácil de manter.
+- **Store Passwords**: Add passwords securely, associating each with a title, key, and login for better organization.
+- **List Passwords**: View all stored passwords in an organized and accessible list, with options to view or edit details.
+- **Local Storage with SQLite**: Passwords are stored locally on the device, ensuring privacy and security.
+- **Simple and Intuitive Interface**: The user interface is clean and focused on usability for a seamless experience.
+- **Generate Strong Passwords**: Easily create strong passwords based on your defined parameters.
 
+## 📱 How to Use
 
-## 🚀 Funcionalidades
+1. **Install the App**  
+   - Download the APK from the following link:  
+     [KeyBunker.apk](https://github.com/kenzoliver/KeyBunker/blob/main/APK/KeyBunker.apk)
 
-- **Armazenar Senhas**: Permite adicionar senhas de forma segura, associando cada uma a um título, chave e login para facilitar a organização.
-- **Listar Senhas**: Exibe todas as senhas armazenadas no banco de dados de forma clara e acessível, com opções para visualizar ou editar informações.
-- **Armazenamento Local com SQLite**: As senhas são armazenadas localmente no dispositivo, garantindo a privacidade e segurança dos dados.
-- **Interface Simples e Intuitiva**: A interface do usuário é limpa, com foco na usabilidade, para uma experiência simples e sem complicação.
-- **Permite criar senhas fortes de forma simples e rápida**: A ferramenta cria senhas fortes de acordo com os parâmetros que você definir.
+2. **Create a Password**  
+   - Tap the "Add Password" button and enter a title, login, and key for the password.  
+   - The password will be securely stored and accessible anytime.
 
-## 📱 Como Usar
+3. **View Passwords**  
+   - Browse the stored password list to view details. Passwords are displayed in an organized manner for easy access.
 
-## 1. **Instalar o aplicativo**
-   - Baixe o APK no seguinte link:  
-     <a href="https://github.com/kenzoliver/KeyBunker/blob/main/APK/KeyBunker.apk" download>KeyBunker.apk</a>
-   
+4. **Edit or Delete Passwords**  
+   - If you need to change a password or remove an entry, select the desired password and choose the edit or delete option.
 
-2. **Criar uma Senha**:
-   - Toque no botão "Adicionar Senha" e insira um título, login e chave para a senha.
-   - A senha será armazenada de forma segura e poderá ser acessada a qualquer momento.
+## 🔐 Security
 
-3. **Visualizar Senhas**:
-   - Navegue pela lista de senhas armazenadas para ver os detalhes. As senhas são exibidas de maneira organizada para fácil acesso.
+KeyBunker prioritizes the security of stored passwords. Using the SQLite database, all information is encrypted locally on the device, with no need for external server connections. The app does not store or share any data, ensuring user privacy.
 
-4. **Editar ou Excluir Senhas**:
-   - Caso precise alterar uma senha ou remover uma entrada, basta selecionar a senha desejada e escolher a opção de editar ou excluir.
+## 💡 Future Features
 
-## 🔐 Segurança
+- **Password Strength Testing**: A feature to test password strength and complexity.
+- **Dark/Light Mode**: Option to switch between dark and light themes based on user preference.
+- **Biometric Authentication**: Protect app access with facial recognition or fingerprint authentication.
+- **Data Backup**: Secure cloud backup functionality for stored passwords.
 
-O **KeyBunker** prioriza a segurança das senhas armazenadas. Utilizando o banco de dados SQLite, todas as informações são mantidas criptografadas localmente no dispositivo, sem a necessidade de conexão com servidores externos. O aplicativo não armazena nem compartilha os dados de forma alguma, garantindo a privacidade dos usuários.
+## 📱 Video Tutorial
 
-## 💡 Recursos Futuros
-- **Teste de Senhas**: Funcionalidade para testar a segurança e complexidade de senhas.
-- **Dark/Ligth**: Funcionalidade para Alternar entre modo claro e escuro de acordo com opção do usuario.
-- **Autenticação por Biometria**: Futuramente, será possível proteger o acesso ao aplicativo com reconhecimento facial ou impressões digitais.
-- **Backup de Dados**: Funcionalidade para backup seguro de senhas em nuvem.
+[Watch the tutorial here](https://github.com/user-attachments/assets/60434bfb-a5cf-41fc-a311-126ad43ddf16)
 
-  
-## 📱 Video tutorial!!
-  
-
-https://github.com/user-attachments/assets/60434bfb-a5cf-41fc-a311-126ad43ddf16
-
-
-
-
-
-Sinta-se à vontade para contribuir ou relatar problemas. O **KeyBunker** é projetado para ser simples, seguro e útil, oferecendo uma solução prática para gerenciamento de senhas em dispositivos móveis! 🚀
+Feel free to contribute or report any issues. **KeyBunker** is designed to be simple, secure, and useful, providing a practical solution for managing passwords on mobile devices! 🚀
