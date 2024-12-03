@@ -43,6 +43,8 @@ KeyBunker prioritizes the security of stored passwords. Using the SQLite databas
 
 ## 💡 Future Features
 
+
+- **app internationalization**: a new functionality that allows you to apply other languages.
 - **Password Strength Testing**: A feature to test password strength and complexity.
 - **Dark/Light Mode**: Option to switch between dark and light themes based on user preference.
 - **Biometric Authentication**: Protect app access with facial recognition or fingerprint authentication.
