@@ -87,7 +87,7 @@ export async function fetchAllPasswords(): Promise<PasswordProps[]> {
 
 function isSQLinjection(input: string): boolean {
   const sqlInjectionRegex =
-    /(\b(SELECT|INSERT|UPDATE|DELETE|DROP|UNION|--|\*|;|OR|AND)\b|['"()])/i;
+    /(\b(SELECT|INSERT|UPDATE|DELETE|DROP|UNION|--|OR| AND)\b|'")/i;
   function testSqlInjection(input: string): boolean {
     return sqlInjectionRegex.test(input);
   }
